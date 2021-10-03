@@ -1,3 +1,4 @@
+//创建一个单链表，并打印出链表中的元素
 #include<stdio.h>
 #include<stdlib.h>
 
