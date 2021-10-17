@@ -27,4 +27,4 @@ typedef Position List;
 struct HashTbl {
 	int TableSize;
 	List * TheLists;
-}; 
+};  
