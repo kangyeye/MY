@@ -59,3 +59,33 @@ void Qsort(ElementType A[], int Left, int Right) {/* 快速排序的主例程 */
 void Quicksort(ElementType A[], int N) {/* 快速排序的驱动程序 */
     Qsort(A, 0, N - 1);
 }
+
+//快速选择
+/* Places the kth smallest element in the kth position */
+/* Because arrays start at 0, this will be index k-1 */
+void Qselect(ElementType A[], int k, int Left, int Right) {
+    int i, j;
+    ElementType Pivot;
+
+    if (Left + Cutoff <= Right) {
+        Pivot = Median3(A, Left, Right);
+        i = Left; j = Right - 1;
+        for (;;) {
+            while (A[++i] < Pivot) {}
+            while (A[--j] > Pivot) {}
+            if (i < j) {
+                Swap(&A[i], &A[j]);
+            }
+            else
+                break;
+        }
+        Swap(&A[i], &A[Right - 1]);/* Restore pivot */
+
+        if (k <= i)
+            Qselect(A, k, Left, i - 1);
+        else if (k > i + 1)
+            Qselect(A, k, i + 1, Right);
+    }
+    else
+        InsertionSort(A + Left, Right - Left + 1);
+}
