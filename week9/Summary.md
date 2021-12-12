@@ -5,4 +5,4 @@
 对于第二部分前两章堆排序和快速排序在上个阶段也已经学习过，重新回顾复习，加强对这种算法思想的理解。
 
 --------------
-![Uploading image.png…]()
+![image](https://user-images.githubusercontent.com/87250799/145714382-291b5f8d-1066-4275-9dfa-f30795ac9bab.png)
