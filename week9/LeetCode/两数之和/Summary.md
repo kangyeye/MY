@@ -36,7 +36,9 @@ find()函数返回一个迭代器指向键值为key的元素，如果没有找�
 
 unordered_map<int,string>::iterator it;
 
-//如果想要偷懒也可以这样写　　　　auto it;
+//如果想要偷懒也可以这样写　　　　
+
+auto it;
 
 it = maplive.find(112);  
 
@@ -47,3 +49,21 @@ if(it!=maplive.end())
 else
     
     cout<<"we don't find 112.";
+    
+#### 4. unordered_map中元素的删除
+
+erase(it)函数会删除迭代器it指向的元素。
+
+//删除键值为112的元素    auto it;
+
+it=maplive.find(112);
+
+if(it==maplive.end())
+
+    cout<<"we don't find 112."<<endl;
+else
+
+    maplive.erase(it); //delete 112
+#### 5.unordered_map中元素的查找  count
+
+count(a)会返回a元素在map中出现的次数，如果没有出现就返回0。
