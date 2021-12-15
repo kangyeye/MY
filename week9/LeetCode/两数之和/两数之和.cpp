@@ -19,13 +19,13 @@ public:
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> hashtable;
+        unordered_map<int, int> hashtable;      //创建哈希表
         for (int i = 0; i < nums.size(); ++i) {
-            auto it = hashtable.find(target - nums[i]);
+            auto it = hashtable.find(target - nums[i]);     //find()函数返回一个迭代器指向键值为key的元素，如果没有找到就返回指向map尾部的迭代器。
             if (it != hashtable.end()) {
-                return {it->second, i};
+                return {it->second, i};         //用迭代器访问元素的键值对应的元素值 it->second
             }
-            hashtable[nums[i]] = i;
+            hashtable[nums[i]] = i;         //map添加数据   hashtable[key]=value;
         }
         return {};
     }
