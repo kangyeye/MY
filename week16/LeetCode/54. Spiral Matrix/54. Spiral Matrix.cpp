@@ -1,3 +1,41 @@
+
+//模拟  声明visited数组来保存是否被访问过的状态
+class Solution {
+    static constexpr int directions[4][2] = {{0,1},{1,0},{0,-1},{-1,0}};
+public:
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        int m = matrix.size();
+        int n = matrix[0].size();
+        int total = m * n;
+        if(m == 0 || n == 0){
+            return {};
+        }
+        vector<vector<bool>> visited(m,vector<bool>(n));
+        vector<int> res(total);
+        
+        int row = 0;
+        int column = 0;
+        int directionIndex = 0;
+        for(int i = 0; i < total; i++){
+            res[i] = matrix[row][column];
+            visited[row][column] = true;
+            int nextRow = row + directions[directionIndex][0];
+            int nextColumn = column + directions[directionIndex][1];
+            if(nextRow < 0 || nextRow >= m
+            || nextColumn < 0 || nextColumn >= n
+            || visited[nextRow][nextColumn]){
+                directionIndex = (directionIndex + 1) % 4;
+            }
+            row +=directions[directionIndex][0];
+            column +=directions[directionIndex][1];
+        }
+        return res;
+    }
+};
+
+//省去设立的visited数组   
+//声明四个变量来保存此时的上边界、下边界、左边界和有边界
+
 class Solution {
 public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) {
